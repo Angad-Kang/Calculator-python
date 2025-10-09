@@ -54,6 +54,13 @@ A = "0"
 operator = None
 B = None
 
+def clear_all():
+    global A, B, operator
+
+    A = "0"
+    operator = None
+    B = None
+
 
 def button_clicked(value):
     global right_symbols, top_symbols, label, A, B, operator
@@ -61,13 +68,21 @@ def button_clicked(value):
     if value in right_symbols:
         pass
     elif value in top_symbols:
-        pass
+        if value == "AC":
+            clear_all()
+            label["text"] = "0"
+        elif value =="+/-":
+            result = float(label["text"])* -1
+            label["text"]= str(result)
+        elif value == "%":
+            pass
     else:
         if value == ".":
-            pass
+            if value not in label["text"]:
+                label["text"] += value
         elif value in "0123456789":
             if label["text"] == "0":
-                label["text"] == value
+                label["text"] = value
             else:
                 label["text"] += value
 
