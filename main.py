@@ -110,7 +110,13 @@ def button_clicked(value):
             result = float(label["text"]) / 100
             label["text"]= remove_zero_decimal(result)
 
-
+    elif value == "√":
+        num = float(label["text"])
+        if num < 0:
+            label["text"] = "Error"
+        else:
+            result = num ** 0.5
+            label["text"] = remove_zero_decimal(result)
 
     else:
         if value == ".":
