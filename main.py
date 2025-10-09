@@ -35,10 +35,14 @@ label.grid(row=0, column=0)
 for row in range(row_count):
     for column in range(column_count):
         value = button_values[row][column]
-        button = tkinter.Button(frame, text=value, font=("Arial, 30"), width=column_count-1, height=1, command=lambda value=value: button_clicker(value))
-        button.grid(row=row+1)
+        button = tkinter.Button(frame, text=value, font=("Arial", 30), width=column_count-1, height=1, command=lambda value=value: button_clicker(value))
+        button.grid(row=row+1, column=column)
 
 frame.pack()
+
+def button_clicked(value):
+    pass
+
 
 window.mainloop()
 
